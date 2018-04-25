@@ -15,8 +15,8 @@ observe({
           current <- filter(the_dat, chain == max(the_dat$chain))$chain
           tmp <- tibble(chain = if_else(length(current) == 1,
                                         current[1],
-                                        current[1] + 1),
-                        id = max(the_dat$id) + 1,
+                                        current[1] + 1L),
+                        id = max(the_dat$id) + 1L,
                         end = if_else(length(current) == 1,
                                      "tail",
                                      "head"),
@@ -68,7 +68,6 @@ observe({
           bind_rows(tmp2)
       }
 
-      print(the_dat)
       react$update_plot <- react$update_plot + 1
     })
   }

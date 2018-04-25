@@ -1,5 +1,5 @@
-the_dat <- tibble(chain = numeric(0), id = numeric(0), end = character(0),
-                  frame = numeric(0), x = numeric(0), y = numeric(0),
+the_dat <- tibble(chain = integer(0), id = integer(0), end = character(0),
+                  frame = integer(0), x = numeric(0), y = numeric(0),
                   mod = logical(0))
 
 shinyServer(function(input, output, session) {
