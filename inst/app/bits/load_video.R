@@ -8,7 +8,7 @@ observe({
                                                                  "~/", "~/.."))), input$the_video)
 
       if (file.exists(paste0(as.character(path$datapath), ".csv"))) {
-        the_dat <<- read_csv(paste0(as.character(path$datapath), ".csv"))
+        the_dat <<- suppressMessages(read_csv(paste0(as.character(path$datapath), ".csv")))
         updateSliderInput(session, "the_frame_slider", value = max(the_dat$frame, na.rm = TRUE))
       }
 
