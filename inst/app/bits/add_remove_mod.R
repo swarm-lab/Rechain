@@ -33,7 +33,7 @@ observe({
           the_dat[the_dat$mod, ]$mod <<- FALSE
         } else {
           tmp <- filter(the_dat, frame <= input$the_frame_slider) %>%
-            group_by(chain) %>%
+            group_by(id) %>%
             filter(frame == max(frame)) %>%
             ungroup() %>%
             mutate(d = (input$the_frame_click$x - x) ^ 2 + (input$the_frame_click$y - y) ^ 2) %>%
@@ -52,7 +52,7 @@ observe({
         }
       } else if (input$the_action == "rmv") {
         tmp1 <- filter(the_dat, frame <= input$the_frame_slider) %>%
-          group_by(chain) %>%
+          group_by(id) %>%
           filter(frame == max(frame)) %>%
           ungroup() %>%
           mutate(d = (input$the_frame_click$x - x) ^ 2 + (input$the_frame_click$y - y) ^ 2) %>%
