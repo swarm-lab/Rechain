@@ -10,10 +10,9 @@ observe({
       if (file.exists(paste0(as.character(path$datapath), ".csv"))) {
         the_dat <<- suppressMessages(read_csv(paste0(as.character(path$datapath), ".csv")))
         updateSliderInput(session, "the_frame_slider", value = max(the_dat$frame, na.rm = TRUE))
+        react$the_video <- video(as.character(path$datapath))
+        react$update_plot <- react$update_plot + 1
       }
-
-      react$the_video <- video(as.character(path$datapath))
-      react$update_plot <- react$update_plot + 1
     })
   }
 })
