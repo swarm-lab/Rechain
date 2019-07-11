@@ -2,7 +2,7 @@ shinyFileChoose(input, "the_video", session = session,
                 roots = c(wd = normalizePath(ifelse(.Platform$OS.type == "unix", "~/", "~/.."))))
 
 observe({
-  if (!is.null(input$the_video)) {
+  if (input$the_video > 0) {
     isolate({
       path <- parseFilePaths(roots = c(wd = normalizePath(ifelse(.Platform$OS.type == "unix",
                                                                  "~/", "~/.."))), input$the_video)
